@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import ErrorPage from "../ErrorPage";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/CLasses/Classes";
+import SignUp from "../Pages/SignUp/SignUp";
 
 
 
@@ -23,6 +24,10 @@ import Classes from "../Pages/CLasses/Classes";
         {
             path: 'login',
             element: <Login />
+        },
+        {
+            path: 'signUp',
+            element: <SignUp />
         },
         {
             path: 'instructors',
