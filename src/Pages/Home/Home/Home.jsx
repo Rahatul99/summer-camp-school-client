@@ -1,13 +1,13 @@
 import Banner from "../Bannner/Banner";
-import InstructorsPage from "../Instructors/Instructors";
 import PopularClassesSection from "../PopularClasses/PopularClasses";
+import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import WhyShould from "../WhyShould/WhyShould";
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <InstructorsPage />
+            <PopularInstructors />
             <PopularClassesSection />
             <WhyShould />
         </div>

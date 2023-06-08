@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
-import SectionTitle from '../../../Components/SectionTitle';
+import { Link } from "react-router-dom";
+import SectionTitle from "../../../Components/SectionTitle";
 
-const instructorsData = [
+const PopularInstructors = () => {
+
+  const instructors = [
     {
       "id": 1,
       "name": "Emma Johnson",
@@ -51,20 +53,24 @@ const instructorsData = [
       "classes": ["Parent and Baby", "Lifeguard Certification", "Diving Techniques"]
     }
   ];
-  
 
-const InstructorsPage = () => {
+
+
+  // Sort instructors based on the number of students in their classes
+
+  const popularInstructors = instructors.sort((a, b) => b.classesTaken - a.classesTaken).slice(0, 6);
+
   return (
     <>
-      <SectionTitle title="Instructors" />
+      <SectionTitle title="Popular Instructors" />
       <div className="grid md:grid-cols-3 gap-6 ml-5 mr-5 mb-5">
-        {instructorsData.map((instructor) => (
+        {popularInstructors.map((instructor) => (
           <div key={instructor.id} className="card shadow-md p-4 rounded-lg toggle-container">
             <img src={instructor.image} alt={instructor.name} className="rounded-lg mb-4" />
             <h2 className="text-xl font-bold mb-2">{instructor.name}</h2>
-            <p className=" mb-2">{instructor.email}</p>
+            <p className="mb-2">{instructor.email}</p>
             {instructor.classesTaken && (
-              <p className=" mb-2">Classes Taken: {instructor.classesTaken}</p>
+              <p className="mb-2">Classes Taken: {instructor.classesTaken}</p>
             )}
             {instructor.classes && (
               <p className="mb-4">Classes: {instructor.classes.join(', ')}</p>
@@ -82,4 +88,4 @@ const InstructorsPage = () => {
   );
 };
 
-export default InstructorsPage;
+export default PopularInstructors;
