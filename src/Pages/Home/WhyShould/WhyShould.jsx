@@ -1,36 +1,10 @@
 import SectionTitle from '../../../Components/SectionTitle';
 import { motion } from 'framer-motion';
 import { Fade, Slide } from "react-awesome-reveal";
-
-
-const cardData = [
-  {
-    title: 'Experienced Staff',
-    description: 'We all have one thing in common: a passion for sport and a unique approach.',
-  },
-  {
-    title: 'Personal Development',
-    description: 'We participate in various courses and learn about new trends in swimming teaching.',
-  },
-  {
-    title: 'Modern Methods',
-    description: 'We work with pure passion for sport and the desire to promote an active lifestyle.',
-  },
-  {
-    title: 'Unique School',
-    description: 'We want to change the approach of children and their parents to learning to swim.',
-  },
-  {
-    title: 'Creative Minds',
-    description: 'Let us celebrate the creative minds, for they are the trailblazers, the dreamers.',
-  },
-  {
-    title: 'Functionality',
-    description: 'At functionality, we celebrate the joy of movement and the power of a positive mindset.',
-  },
-];
+import useWhyshould from '../../../Components/Hooks/useWhyshould';
 
 const WhyShould = () => {
+  const [cardData] = useWhyshould();
   return (
     <>
       <SectionTitle title="Check Why You Should Choose Us"/>

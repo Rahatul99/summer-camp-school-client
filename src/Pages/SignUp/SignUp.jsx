@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 
 const SignUp = () => {
@@ -18,6 +19,11 @@ const SignUp = () => {
 
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1464925257126-6450e871c667?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80")` }}>
+
+            <Helmet>
+                <title>Dive-In Delight | SignUp</title>
+            </Helmet>
+
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content w-[100%] flex-col lg:flex-row-reverse mt-[55px]">
                 <div className="card flex-shrink-0 w-[40%] shadow-2xl glass">

@@ -1,44 +1,8 @@
+import useClasses from "../../../Components/Hooks/useClasses";
 import SectionTitle from "../../../Components/SectionTitle";
 
 const PopularClassesSection = () => {
-  const classesData = [
-    {
-        id: 1,
-        name: "Beginner Swimming",
-        image: "class_beginner_swimming.jpg",
-        students: 35
-    },
-    {
-        id: 2,
-        name: "Advanced Techniques",
-        image: "class_advanced_techniques.jpg",
-        students: 28
-    },
-    {
-        id: 3,
-        name: "Water Aerobics",
-        image: "class_water_aerobics.jpg",
-        students: 42
-    },
-    {
-        id: 4,
-        name: "Swimming for Kids",
-        image: "class_swimming_for_kids.jpg",
-        students: 48
-    },
-    {
-        id: 5,
-        name: "Competitive Swimming",
-        image: "class_competitive_swimming.jpg",
-        students: 39
-    },
-    {
-        id: 6,
-        name: "Stroke Correction",
-        image: "class_stroke_correction.jpg",
-        students: 33
-    }
-];
+  const [classesData] = useClasses();
 
   // Sort classes based on the number of students in descending order
   const sortedClasses = classesData.sort((a, b) => b.students - a.students);

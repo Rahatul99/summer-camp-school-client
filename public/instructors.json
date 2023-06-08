@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Emma Johnson",
+    "email": "emma.johnson@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2019/12/Wallen_Swim_School_Alyssa_A.jpg",
+    "classesTaken": 8,
+    "classes": [
+      "Beginner Swimming",
+      "Advanced Techniques",
+      "Water Aerobics"
+    ]
+  },
+  {
+    "name": "Michael Smith",
+    "email": "michael.smith@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2019/12/Wallen_Swim_School_Brendan.jpg",
+    "classesTaken": 12,
+    "classes": [
+      "Swimming for Kids",
+      "Competitive Swimming",
+      "Stroke Correction"
+    ]
+  },
+  {
+    "name": "Sophia Davis",
+    "email": "sophia.davis@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2019/12/Wallen_Swim_School_Anna.jpg",
+    "classesTaken": 6,
+    "classes": [
+      "Water Safety",
+      "Adult Swimming",
+      "Open Water Training"
+    ]
+  },
+  {
+    "name": "Daniel Wilson",
+    "email": "daniel.wilson@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2020/01/Wallen_Swim_Brett.jpg",
+    "classesTaken": 10,
+    "classes": [
+      "Triathlon Training",
+      "Masters Swimming",
+      "Swim Technique"
+    ]
+  },
+  {
+    "name": "Olivia Thompson",
+    "email": "olivia.thompson@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2022/08/mathew_1-sized.jpg",
+    "classesTaken": 7,
+    "classes": [
+      "Aquafit",
+      "Water Therapy",
+      "Senior Swim Program"
+    ]
+  },
+  {
+    "name": "Ethan Anderson",
+    "email": "ethan.anderson@example.com",
+    "image": "https://wallenswim.com/wp-content/uploads/2022/08/ryan_1-sized.jpg",
+    "classesTaken": 9,
+    "classes": [
+      "Parent and Baby",
+      "Lifeguard Certification",
+      "Diving Techniques"
+    ]
+  }
+]

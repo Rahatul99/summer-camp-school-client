@@ -1,7 +1,7 @@
 import { FaSwimmer } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Navbar = ({toggleMode}) => {
+const Navbar = ({ toggleMode }) => {
     const navOptions = <>
         <li><Link>Home</Link></li>
         <li><Link to="/instructors">Instructors</Link></li>

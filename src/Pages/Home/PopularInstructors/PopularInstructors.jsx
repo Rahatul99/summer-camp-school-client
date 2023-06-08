@@ -1,60 +1,9 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle";
+import useInstructors from "../../../Components/Hooks/useInstructors";
 
 const PopularInstructors = () => {
-
-  const instructors = [
-    {
-      "id": 1,
-      "name": "Emma Johnson",
-      "email": "emma.johnson@example.com",
-      "image": "instructor_emma.jpg",
-      "classesTaken": 8,
-      "classes": ["Beginner Swimming", "Advanced Techniques", "Water Aerobics"]
-    },
-    {
-      "id": 2,
-      "name": "Michael Smith",
-      "email": "michael.smith@example.com",
-      "image": "instructor_michael.jpg",
-      "classesTaken": 12,
-      "classes": ["Swimming for Kids", "Competitive Swimming", "Stroke Correction"]
-    },
-    {
-      "id": 3,
-      "name": "Sophia Davis",
-      "email": "sophia.davis@example.com",
-      "image": "instructor_sophia.jpg",
-      "classesTaken": 6,
-      "classes": ["Water Safety", "Adult Swimming", "Open Water Training"]
-    },
-    {
-      "id": 4,
-      "name": "Daniel Wilson",
-      "email": "daniel.wilson@example.com",
-      "image": "instructor_daniel.jpg",
-      "classesTaken": 10,
-      "classes": ["Triathlon Training", "Masters Swimming", "Swim Technique"]
-    },
-    {
-      "id": 5,
-      "name": "Olivia Thompson",
-      "email": "olivia.thompson@example.com",
-      "image": "instructor_olivia.jpg",
-      "classesTaken": 7,
-      "classes": ["Aquafit", "Water Therapy", "Senior Swim Program"]
-    },
-    {
-      "id": 6,
-      "name": "Ethan Anderson",
-      "email": "ethan.anderson@example.com",
-      "image": "instructor_ethan.jpg",
-      "classesTaken": 9,
-      "classes": ["Parent and Baby", "Lifeguard Certification", "Diving Techniques"]
-    }
-  ];
-
-
+  const [instructors] = useInstructors()
 
   // Sort instructors based on the number of students in their classes
 
