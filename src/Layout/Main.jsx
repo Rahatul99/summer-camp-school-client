@@ -21,19 +21,3 @@ const Main = () => {
 
 export default Main;
 
-
-
-//   const [darkMode, setDarkMode] = useState(false);
-
-//   const toggleMode = () => {
-//     setDarkMode(!darkMode);
-//   return (
-//     <div className={`home ${darkMode ? "dark" : "light"}`}>
-//       <div className="toggle-container">
-//         <button className="toggle-button" onClick={toggleMode}>
-//           {darkMode ? "Light Mode" : "Dark Mode"}
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };

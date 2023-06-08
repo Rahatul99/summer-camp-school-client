@@ -1,5 +1,6 @@
 import SectionTitle from '../../../Components/SectionTitle';
 import { motion } from 'framer-motion';
+import { Fade, Slide } from "react-awesome-reveal";
 
 
 const cardData = [
@@ -33,6 +34,8 @@ const WhyShould = () => {
   return (
     <>
       <SectionTitle title="Check Why You Should Choose Us"/>
+      <Slide>
+        <Fade cascade damping={1e-1}>
         <div className="grid md:grid-cols-3 gap-6 p-5">
           {cardData.map((card, index) => (
             <motion.div
@@ -49,6 +52,8 @@ const WhyShould = () => {
             </motion.div>
           ))}
         </div>
+        </Fade>
+      </Slide>  
     </>
   );
 };

@@ -63,7 +63,7 @@ const PopularInstructors = () => {
   return (
     <>
       <SectionTitle title="Popular Instructors" />
-      <div className="grid md:grid-cols-3 gap-6 ml-5 mr-5 mb-5">
+        <div className="grid md:grid-cols-3 gap-6 ml-5 mr-5 mb-5">
         {popularInstructors.map((instructor) => (
           <div key={instructor.id} className="card shadow-md p-4 rounded-lg toggle-container">
             <img src={instructor.image} alt={instructor.name} className="rounded-lg mb-4" />

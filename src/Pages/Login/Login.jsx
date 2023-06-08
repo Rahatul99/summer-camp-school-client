@@ -95,21 +95,21 @@ const Login = () => {
                 {/* {error} */}
               </p>
               <div className="form-control mt-6">
-                <input className="btn btn-block" type="submit" value="Login" />
+                <input className="btn btn-block hover:bg-orange-600 border-none translate-x-2 transition duration-500 text-slate-200" type="submit" value="Login" />
               </div>
             </form>
-            <p className="my-4 text-center">
+            <p className="my-4 text-center text-slate-200">
               Don t have an account?{' '}
-              <Link className="text-violet-600 font-bold" to="/signup">
+              <Link className="text-orange-600 font-bold" to="/signup">
                 Sign Up
               </Link>
             </p>
-            <div className="divider">Or login with</div>
+            <div className="divider text-slate-200">Or login with</div>
             <div className="mt-6">
               <div className="flex justify-center">
                 <button
                   // onClick={handleGoogleLogIn} 
-                  className="btn hover:bg-orange-700 btn-circle text-center">
+                  className="btn hover:bg-orange-600 border-none translate-x-2 transition duration-500 btn-circle text-center">
                   <FaGoogle className="mr-1" />
                 </button>
               </div>
