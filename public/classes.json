@@ -1,32 +1,57 @@
 [
     {
-        "name": "Beginner Swimming",
-        "image": "https://hosteldirect.com/wp-content/uploads/2022/02/How-to-Plan-the-Best-Hotel-Swimming-Pool-Party-for-Kids.jpg",
-        "students": 35
+      "name": "Beginner Swimming",
+      "image": "https://hosteldirect.com/wp-content/uploads/2022/02/How-to-Plan-the-Best-Hotel-Swimming-Pool-Party-for-Kids.jpg",
+      "students": 35,
+      "instructor": "John Smith",
+      "instructorEmail": "johnsmith@example.com",
+      "availableSeats": 10,
+      "price": 50
     },
     {
-        "name": "Advanced Techniques",
-        "image": "https://guides.wiggle.co.uk/sites/default/files/styles/770x480crop/public/hero/05_mixed_underwater_0937.jpg?itok=0Pq9_CSm",
-        "students": 28
+      "name": "Advanced Techniques",
+      "image": "https://guides.wiggle.co.uk/sites/default/files/styles/770x480crop/public/hero/05_mixed_underwater_0937.jpg?itok=0Pq9_CSm",
+      "students": 28,
+      "instructor": "Alice Johnson",
+      "instructorEmail": "alicejohnson@example.com",
+      "availableSeats": 8,
+      "price": 60
     },
     {
-        "name": "Water Aerobics",
-        "image": "https://photos.cdn-outlet.com/photos/cms/images/d4a69f10-8868-4ce9-b9a7-4a58e056046d.jpg",
-        "students": 42
+      "name": "Water Aerobics",
+      "image": "https://photos.cdn-outlet.com/photos/cms/images/d4a69f10-8868-4ce9-b9a7-4a58e056046d.jpg",
+      "students": 42,
+      "instructor": "Michael Brown",
+      "instructorEmail": "michaelbrown@example.com",
+      "availableSeats": 12,
+      "price": 40
     },
     {
-        "name": "Swimming for Kids",
-        "image": "https://jumpswimschools.com.au/wp-content/uploads/2019/05/usFFTHw.jpeg",
-        "students": 48
+      "name": "Swimming for Kids",
+      "image": "https://jumpswimschools.com.au/wp-content/uploads/2019/05/usFFTHw.jpeg",
+      "students": 48,
+      "instructor": "Sarah Davis",
+      "instructorEmail": "sarahdavis@example.com",
+      "availableSeats": 15,
+      "price": 55
     },
     {
-        "name": "Competitive Swimming",
-        "image": "https://cdn.britannica.com/01/193601-050-F8F18A9B/Katie-Ledecky-American-lead-way-women-world-2016.jpg",
-        "students": 39
+      "name": "Competitive Swimming",
+      "image": "https://cdn.britannica.com/01/193601-050-F8F18A9B/Katie-Ledecky-American-lead-way-women-world-2016.jpg",
+      "students": 39,
+      "instructor": "Robert Wilson",
+      "instructorEmail": "robertwilson@example.com",
+      "availableSeats": 5,
+      "price": 70
     },
     {
-        "name": "Stroke Correction",
-        "image": "https://www.littleswimschool.com/wp-content/uploads/header-swim-stroke-correction.jpg",
-        "students": 33
+      "name": "Stroke Correction",
+      "image": "https://www.littleswimschool.com/wp-content/uploads/header-swim-stroke-correction.jpg",
+      "students": 33,
+      "instructor": "Emily Johnson",
+      "instructorEmail": "emilyjohnson@example.com",
+      "availableSeats": 7,
+      "price": 65
     }
-]
+  ]
+  

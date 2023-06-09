@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { FaShoppingBag, FaSwimmer } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useCart from "../../../Components/Hooks/useCart";
 
 const Navbar = ({ toggleMode }) => {
     const location = useLocation();
     const { user, logOut } = useContext(AuthContext);
+    const [carts] = useCart();
 
     const handleLogOut = () => {
         logOut()
@@ -20,7 +22,7 @@ const Navbar = ({ toggleMode }) => {
         <li className={location.pathname === '/' ? 'bg-violet-700' : ''}><Link to='/'>Home</Link></li>
         <li className={location.pathname === '/instructors' ? 'bg-violet-700' : ''}><Link to="/instructors">Instructors</Link></li>
         <li className={location.pathname === '/classes' ? 'bg-violet-700' : ''}><Link to="/classes">Classes</Link></li>
-        <li className={location.pathname === '/dashboard' ? 'bg-violet-700' : ''}><Link to="dashboard">Dashboard</Link></li>
+        <li className={location.pathname === '/dashboard' ? 'bg-violet-700' : ''}><Link to="dashboard/myCart">Dashboard</Link></li>
         <li><label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" onClick={toggleMode} />
@@ -36,7 +38,7 @@ const Navbar = ({ toggleMode }) => {
         <li><Link>
             <div className="w-12 rounded-full bg-neutral-focus text-white flex gap-1">
                 <FaShoppingBag />
-                <span>+0</span>
+                <span>+{carts?.length || 0}</span>
             </div>
         </Link></li>
     </>

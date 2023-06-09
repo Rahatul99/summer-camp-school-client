@@ -5,26 +5,39 @@ import { SyncLoader } from 'react-spinners';
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useCart from "../../Components/Hooks/useCart";
 
 const Classes = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const [classesData, loading] = useClasses();
+    const [, , refetch] = useCart();
 
     const [selectedClass, setSelectedClass] = useState(null);
     console.log(selectedClass);
 
     const handleSelectClass = (course) => {
-        if(user) {
-           fetch('http://localhost:5000/carts')
+        const {_id, name, price, availableSeats, instructor, image} = course;
+        if(user && user.email) {
+            const bookedCourse = {courseId: _id, courseName: name, price, availableSeats, studentEmail: user.email, instructor, courseImage: image}
+
+           fetch('http://localhost:5000/carts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookedCourse)
+           })
            .then(res => res.json())
            .then(data => {
-            if(data.insertId){
+            console.log(data);
+            if(data.insertedId){
+                refetch();
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: `${name} this class booked successfully`,
                     showConfirmButton: false,
                     timer: 1500
                   }) 

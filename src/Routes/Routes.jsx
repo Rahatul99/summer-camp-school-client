@@ -8,6 +8,8 @@ import ErrorPage from "../ErrorPage";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/CLasses/Classes";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 
 
 
@@ -39,4 +41,14 @@ import SignUp from "../Pages/SignUp/SignUp";
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard />,
+      children:[
+        {
+          path: 'myCart',
+          element: <MyCart />
+        }
+      ]
+    }
   ]);
