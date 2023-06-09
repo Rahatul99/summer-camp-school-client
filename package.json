@@ -13,6 +13,7 @@
     "@emotion/react": "^11.11.1",
     "@headlessui/react": "^1.7.15",
     "aos": "^3.0.0-beta.6",
+    "firebase": "^9.22.2",
     "framer-motion": "^10.12.16",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
