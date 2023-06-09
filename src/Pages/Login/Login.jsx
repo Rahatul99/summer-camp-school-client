@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
@@ -11,6 +11,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
@@ -27,6 +31,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         })
+        navigate(from, {replace: true});
       })
       .catch((error) => {
         if (error.code === 'auth/user-not-found') {
@@ -47,6 +52,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         })
+        navigate(from, {replace: true});
       })
       .catch((error) => setError(error));
   };
