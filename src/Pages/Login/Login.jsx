@@ -3,40 +3,53 @@ import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Helmet } from 'react-helmet-async';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState();
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
-    console.log(data);
+
+    signIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        reset();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Successfully login',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+      .catch((error) => {
+        if (error.code === 'auth/user-not-found') {
+          setError('Invalid email. Please sign up and try again later');
+        } else {
+          setError('Login failed. Please check your email and password.');
+        }
+      });
   }
-
-
-
-
-
-  //     signIn(email, password)
-  //       .then((result) => {
-  //         const user = result.user;
-  //         console.log(user);
-  //       })
-  //       .catch((error) => {
-  //         if (error.code === 'auth/user-not-found') {
-  //           setError('Invalid email. Please sign up and try again.');
-  //         } else {
-  //           setError('Login failed. Please check your email and password.');
-  //         }
-  //       });
-  //   };
-
-  //   const handleGoogleLogIn = () => {
-  //     googleLogin()
-  //       .then((result) => {
-  //         console.log(result.user);
-  //       })
-  //       .catch((error) => setError(error));
-  //   };
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'login Successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+      .catch((error) => setError(error));
+  };
 
 
   const togglePasswordVisibility = () => {
@@ -97,7 +110,7 @@ const Login = () => {
                 </label>
               </div>
               <p className="text-red-400">
-                {/* {error} */}
+                {error}
               </p>
               <div className="form-control mt-6">
                 <input className="btn btn-block hover:bg-orange-600 border-none translate-x-2 transition duration-500 text-slate-200" type="submit" value="Login" />
@@ -113,7 +126,7 @@ const Login = () => {
             <div className="mt-6">
               <div className="flex justify-center">
                 <button
-                  // onClick={handleGoogleLogIn} 
+                  onClick={handleGoogleLogIn}
                   className="btn hover:bg-orange-600 border-none translate-x-2 transition duration-500 btn-circle text-center">
                   <FaGoogle className="mr-1" />
                 </button>

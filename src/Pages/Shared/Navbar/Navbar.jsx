@@ -1,14 +1,27 @@
+import { useContext } from "react";
 import { FaSwimmer } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = ({ toggleMode }) => {
-    const navOptions = <>
-        <li><Link>Home</Link></li>
-        <li><Link to="/instructors">Instructors</Link></li>
-        <li><Link to="/classes">Classes</Link></li>
-        <li><Link>Dashboard</Link></li>
-        <li><label className="swap swap-rotate">
+    const location = useLocation();
+    const { user, logOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
+    const navOptions = <>
+        <li className={location.pathname === '/' ? 'bg-violet-700' : ''}><Link to='/'>Home</Link></li>
+        <li className={location.pathname === '/instructors' ? 'bg-violet-700' : ''}><Link to="/instructors">Instructors</Link></li>
+        <li className={location.pathname === '/classes' ? 'bg-violet-700' : ''}><Link to="/classes">Classes</Link></li>
+        <li className={location.pathname === '/dashboard' ? 'bg-violet-700' : ''}><Link to="dashboard">Dashboard</Link></li>
+        <li><label className="swap swap-rotate">    
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" onClick={toggleMode} />
 
@@ -19,6 +32,7 @@ const Navbar = ({ toggleMode }) => {
             <svg className="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
 
         </label></li>
+        <li><Link>{ user ? `${user.displayName}` : ''}</Link></li>
     </>
     return (
         <>
@@ -40,9 +54,29 @@ const Navbar = ({ toggleMode }) => {
                         {navOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to="login" className="btn">Login</Link>
-                </div>
+                {
+                    user ?
+                        <div className="dropdown navbar-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} title={user?.displayName} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                <li onClick={handleLogOut}><a>Logout</a></li>
+                            </ul>
+                        </div>
+                        :
+                        <div className="navbar-end">
+                            <Link to="/login" className="btn sm:btn-sm md:btn-md">Login</Link>
+                        </div>
+                }
             </div>
         </>
     );
