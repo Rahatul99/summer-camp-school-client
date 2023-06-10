@@ -12,39 +12,39 @@ const Classes = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [classesData, loading] = useClasses();
-    const [, , refetch] = useCart();
+    const [, refetch] = useCart();
 
     const [selectedClass, setSelectedClass] = useState(null);
     console.log(selectedClass);
 
     const handleSelectClass = (course) => {
-        const {_id, name, price, availableSeats, instructor, image} = course;
-        if(user && user.email) {
-            const bookedCourse = {courseId: _id, courseName: name, price, availableSeats, studentEmail: user.email, instructor, courseImage: image}
+        const { _id, name, price, availableSeats, instructor, image } = course;
+        if (user && user.email) {
+            const bookedCourse = { courseId: _id, courseName: name, price, availableSeats, studentEmail: user.email, instructor, courseImage: image }
 
-           fetch('http://localhost:5000/carts', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(bookedCourse)
-           })
-           .then(res => res.json())
-           .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${name} this class booked successfully`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  }) 
-            }
-           })
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(bookedCourse)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: `${name} this class booked successfully`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
         }
-        else{
+        else {
             Swal.fire({
                 title: 'Please login to book the classes',
                 icon: 'warning',
@@ -52,11 +52,11 @@ const Classes = () => {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Login now!'
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                  navigate('/login', {state: {from: location}})
+                    navigate('/login', { state: { from: location } })
                 }
-              })
+            })
         }
 
 

@@ -4,9 +4,9 @@ import { FaDollarSign, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyCart = () => {
-    const [carts, , refetch] = useCart();
+    const [carts, refetch] = useCart();
     console.log(carts);
-    const total = carts.reduce((sum, item) => item.price + sum, 0)
+         const total = carts?.reduce((sum, item) => item.price + sum, 0)
 
     const handleDelete = (course) => {
         Swal.fire({
@@ -44,7 +44,7 @@ const MyCart = () => {
             </Helmet>
             <div className="uppercase flex flex-col items-center my-5">
                 <h3 className="text-3xl font-bold mb-4">
-                    Total Items: <span className="text-primary">{carts.length}</span> &nbsp;&nbsp;|&nbsp;&nbsp; Total Price: <span className="text-primary">${total}</span>
+                    Total Items: <span className="text-primary">{carts?.length}</span> &nbsp;&nbsp;|&nbsp;&nbsp; Total Price: <span className="text-primary">${total}</span>
                 </h3>
                 <button className="btn btn-primary btn-sm mt-4">
                     <FaDollarSign className="w-4 h-4 mr-2" />
@@ -68,21 +68,21 @@ const MyCart = () => {
                     </thead>
                     <tbody>
                         {
-                            carts.map((course, index) => <tr key={course._id}>
+                            carts?.map((course, index) => <tr key={course._id}>
                                 <td>
                                     {index + 1}
                                 </td>
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src={course.courseImage} alt="Avatar Tailwind CSS Component" />
+                                            <img src={course?.courseImage} alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    {course.courseName}
+                                    {course?.courseName}
                                 </td>
-                                <td className="text-center">${course.price}</td>
+                                <td className="text-center">${course?.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(course)} className="btn btn-ghost btn-md bg-red-700"><FaTrash /></button>
                                 </td>
