@@ -1,12 +1,11 @@
-import { useContext } from "react";
 import { FaShoppingBag, FaSwimmer } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import useCart from "../../../Components/Hooks/useCart";
+import useAuth from "../../../Components/Hooks/useAuth";
 
 const Navbar = ({ toggleMode }) => {
     const location = useLocation();
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
     const [carts] = useCart();
 
     const handleLogOut = () => {

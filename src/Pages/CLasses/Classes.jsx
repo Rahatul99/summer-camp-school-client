@@ -1,18 +1,20 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import useClasses from "../../Components/Hooks/useClasses";
 import { SyncLoader } from 'react-spinners';
-import { AuthContext } from "../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useCart from "../../Components/Hooks/useCart";
+import useAuth from "../../Components/Hooks/useAuth";
+import useAdmin from "../../Components/Hooks/useAdmin";
 
 const Classes = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const [classesData, loading] = useClasses();
     const [, refetch] = useCart();
+    const [isAdmin] = useAdmin();
 
     const [selectedClass, setSelectedClass] = useState(null);
     console.log(selectedClass);
@@ -61,10 +63,10 @@ const Classes = () => {
 
 
         setSelectedClass(course);
-        // if (isAdmin) {
-        //     alert('You cannot select this class as an admin or instructor.');
-        //     return;
-        // }
+        if (isAdmin) {
+            alert('You cannot select this class as an admin or instructor.');
+            return;
+        }
     }
 
     return (
@@ -99,7 +101,7 @@ const Classes = () => {
                                 <button
                                     className="btn toggle-button font-bold py-2 px-4 rounded-full"
                                     disabled={course.availableSeats === 0
-                                        // || isAdmin
+                                        || isAdmin
                                     }
                                     onClick={() => handleSelectClass(course)}
                                 >

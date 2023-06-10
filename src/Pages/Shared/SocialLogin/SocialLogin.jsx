@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import useAuth from "../../../Components/Hooks/useAuth";
 
 
 const SocialLogin = () => {
-    const { googleSignIn } = useContext(AuthContext);
+    const { googleSignIn } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 

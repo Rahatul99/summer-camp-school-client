@@ -1,15 +1,18 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
-import { useContext } from 'react';
 import { FaAddressCard, FaBookDead, FaHome, FaMarker, FaShoppingBag, FaUpload, FaWallet, FaUserEdit } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
+import useAuth from '../Components/Hooks/useAuth';
+import useAdmin from '../Components/Hooks/useAdmin';
+import useInstructor from '../Components/Hooks/useInstructor';
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
 
     //todo
-    const isAdmin = true;
-    const isInstructor = false;
+    // const isAdmin = true;
+    const [isInstructor] = useInstructor();
+    const [isAdmin] = useAdmin();
+    console.log(isInstructor, isAdmin,'--------------------------------');
 
     return (
         <div className="drawer lg:drawer-open">

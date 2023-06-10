@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import { SyncLoader } from 'react-spinners';
+import useAuth from "../Components/Hooks/useAuth";
 
 const PrivateRoute = ({children}) => {
-    const {user, loading} = useContext(AuthContext);
+    const {user, loading} = useAuth();
     const location = useLocation();
     if(user){
         return children;
