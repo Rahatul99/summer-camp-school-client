@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Helmet } from 'react-helmet-async';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const [error, setError] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,23 +42,6 @@ const Login = () => {
         }
       });
   }
-  const handleGoogleLogIn = () => {
-    googleSignIn()
-      .then((result) => {
-        console.log(result.user);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'login Successful',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        navigate(from, {replace: true});
-      })
-      .catch((error) => setError(error));
-  };
-
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
@@ -130,13 +114,7 @@ const Login = () => {
             </p>
             <div className="divider text-slate-200">Or login with</div>
             <div className="mt-6">
-              <div className="flex justify-center">
-                <button
-                  onClick={handleGoogleLogIn}
-                  className="btn hover:bg-orange-600 border-none translate-x-2 transition duration-500 btn-circle text-center">
-                  <FaGoogle className="mr-1" />
-                </button>
-              </div>
+              <SocialLogin />
             </div>
           </div>
         </div>
