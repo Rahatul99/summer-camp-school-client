@@ -20,16 +20,21 @@ const SignUp = () => {
             console.log(result.user);
             updateUser(data.name, data.photoURL)
                 .then(() => {
-                    reset();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'User created successfully.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    navigate('/');
-
+                    fetch('http://localhost:5000/users')
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
                 })
                 .catch(error => setError(error))
         })
