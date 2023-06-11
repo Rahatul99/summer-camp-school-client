@@ -224,7 +224,7 @@ const ManageClasses = () => {
   };
 
   const handleDeny = (classId) => {
-    fetch(`http://localhost:5000/classes/denied/${classId}`, {
+    fetch(`http://localhost:5000/classes/deny/${classId}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -243,15 +243,41 @@ const ManageClasses = () => {
   };
 
   const handleSendFeedback = (classId) => {
-    // Implement the logic to send feedback to the instructor for the class
-    // Open a modal or a form to input and send the feedback
-    // For example:
     Swal.fire({
-      title: 'Send Feedback',
-      text: 'Implement your feedback form here',
-      icon: 'info',
+      title: 'Submit your feedback',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Send Feedback',
+      showLoaderOnConfirm: true,
+      preConfirm: async (value) => {
+        try {
+          const response = await axiosSecure.post(`/classes/feedback/${classId}`, { feedback: value });
+          if (response.status === 200) {
+            return response.data;
+          } else {
+            throw new Error(response.statusText);
+          }
+        } catch (error) {
+          Swal.showValidationMessage(`Request failed: ${error}`);
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Feedback Sent!',
+          text: 'Your feedback has been successfully submitted.',
+          icon: 'success',
+        });
+        refetch();
+      }
     });
   };
+  
+  
 
   return (
     <div className="w-full">

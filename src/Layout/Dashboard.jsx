@@ -42,6 +42,7 @@ const Dashboard = () => {
                             {/* Show admin dashboard links */}
                             <li><NavLink to='/dashboard/manageClasses'><FaMarker /> Manage Classes</NavLink></li>
                             <li><NavLink to='/dashboard/allUsers'><FaUserEdit /> Manage Users</NavLink></li>
+                            <li><NavLink to='/dashboard/addClass'><FaUpload />Add a Class</NavLink></li>
                         </>
                     ) : (
                         <>
