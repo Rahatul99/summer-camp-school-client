@@ -40,7 +40,7 @@ const Dashboard = () => {
                     {isAdmin ? (
                         <>
                             {/* Show admin dashboard links */}
-                            <li><NavLink to='/dashboard/adminLink1'><FaMarker /> Manage Classes</NavLink></li>
+                            <li><NavLink to='/dashboard/manageClasses'><FaMarker /> Manage Classes</NavLink></li>
                             <li><NavLink to='/dashboard/allUsers'><FaUserEdit /> Manage Users</NavLink></li>
                         </>
                     ) : (

@@ -15,6 +15,8 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 
 
 
@@ -61,6 +63,14 @@ import AdminRoute from "./AdminRoute";
         {
           path: 'addClass',
           element: <InstructorRoute><AddClass /></InstructorRoute>
+        },
+        {
+          path: 'myClasses',
+          element: <InstructorRoute><MyClasses /></InstructorRoute>
+        },
+        {
+          path: 'manageClasses',
+          element: <AdminRoute><ManageClasses /></AdminRoute>
         }
       ]
     }

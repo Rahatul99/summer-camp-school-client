@@ -187,6 +187,7 @@ const AddClass = () => {
     const instructor = instructors.find((instructor) => instructor.email === user.email);
 
     const onSubmit = (data) => {
+        console.log(data);
         setLoading(true); // Start loader
         const formData = new FormData();
         formData.append('image', data.image[0]);
@@ -199,7 +200,7 @@ const AddClass = () => {
             .then((imgResponse) => {
                 if (imgResponse.success) {
                     const imgUrl = imgResponse.data.display_url;
-                    const { className, instructorName, instructorEmail, availableSeats, price } = data;
+                    const { className, instructorName, instructorEmail, availableSeats, price, status } = data;
                     const newItem = {
                         className,
                         instructorName,
@@ -207,6 +208,7 @@ const AddClass = () => {
                         availableSeats: parseInt(availableSeats),
                         price: parseFloat(price),
                         image: imgUrl,
+                        status
                     };
 
                     axiosSecure
@@ -268,9 +270,10 @@ const AddClass = () => {
                         </label>
                         <input
                             type="text"
-                            id="instructorName"
-                            readOnly
+                            // id="instructorName"
+                            // readOnly
                             value={instructor?.name}
+                            {...register('instructorName', { required: true })}
                             className="mt-1 input input-bordered w-full cursor-not-allowed text-white"
                         />
                     </div>
@@ -280,8 +283,7 @@ const AddClass = () => {
                         </label>
                         <input
                             type="text"
-                            id="instructorEmail"
-                            readOnly
+                            {...register('instructorEmail', { required: true })}
                             value={instructor?.email}
                             className="mt-1 input input-bordered w-full cursor-not-allowed text-white"
                         />
@@ -297,6 +299,7 @@ const AddClass = () => {
                             className="mt-1 input input-bordered w-full"
                         />
                     </div>
+                    <input type="hidden" {...register('status')} value="pending" />
                     <div className="">
                         <label className="block text-sm font-medium text-gray-200">Price</label>
                         <input
@@ -309,7 +312,7 @@ const AddClass = () => {
                     <div className="">
                         <button
                             type="submit"
-                            disabled={loading} // Disable button while loading
+                            disabled={loading}
                             className="btn w-full toggle-button font-bold py-2 px-4 rounded-full"
                         >
                             {loading ? <SyncLoader color="#36d7b7" /> : 'Add a Class'}

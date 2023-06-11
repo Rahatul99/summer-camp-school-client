@@ -124,17 +124,6 @@ const AllUsers = () => {
                                         </button>
                                     )}
                                 </td>
-                                {/* <td>
-                                    {user.role === 'admin' ? 'instructor' : (
-                                        <button
-                                            onClick={() => handleMakeInstructor(user)}
-                                            className="btn btn-ghost bg-green-600 text-white"
-                                        >
-                                            <FaChalkboardTeacher />
-                                        </button>
-                                    )}
-                                </td> */}
-
                                 <td>
                                     {user.role === 'admin' ? (
                                         'admin'
