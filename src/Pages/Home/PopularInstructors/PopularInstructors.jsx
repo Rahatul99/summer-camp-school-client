@@ -1,11 +1,11 @@
 import SectionTitle from "../../../Components/SectionTitle";
-import useInstructors from "../../../Components/Hooks/useInstructors";
 import { useState } from "react";
 import Modal from './Modal';
 import { SyncLoader } from 'react-spinners';
+import useInstructorsData from "../../../Components/Hooks/useInstructorsData";
 
 const PopularInstructors = () => {
-  const [instructors, loading] = useInstructors();
+  const [instructors, loading] = useInstructorsData();
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedInstructorId, setSelectedInstructorId] = useState(null);
 
@@ -27,14 +27,14 @@ const PopularInstructors = () => {
         <div className="grid md:grid-cols-3 gap-6 ml-5 mr-5 mb-5">
           {popularInstructors.map((instructor) => (
             <div key={instructor._id} className="card shadow-md p-4 rounded-lg toggle-container">
-              <img src={instructor.image} alt={instructor.name} className="rounded-lg mb-4" />
+              <img src={instructor.photoURL} alt={instructor.name} className="rounded-lg mb-4" />
               <h2 className="text-xl font-bold mb-2">{instructor.name}</h2>
               <p className="mb-2">{instructor.email}</p>
-              {instructor.classesTaken && (
-                <p className="mb-2">Classes Taken: {instructor.classesTaken}</p>
+              {instructor?.classesTaken && (
+                <p className="mb-2">Classes Taken: {instructor?.classesTaken}</p>
               )}
               {instructor.classes && (
-                <p className="mb-4">Classes: {instructor.classes.join(', ')}</p>
+                <p className="mb-4">Classes: {instructor?.classes.join(', ')}</p>
               )}
               <button
                 onClick={() => handleViewDetails(instructor._id)}

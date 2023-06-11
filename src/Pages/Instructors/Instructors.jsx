@@ -1,10 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import useInstructors from '../../Components/Hooks/useInstructors';
 import { SyncLoader } from 'react-spinners';
+import useInstructorsData from '../../Components/Hooks/useInstructorsData';
 
 const Instructors = () => {
-  const [instructors, loading] = useInstructors();
+  // const [instructors, loading] = useInstructors();
+  const [instructors, loading] = useInstructorsData()
   return (
     <>
       <Helmet>
@@ -26,7 +27,7 @@ const Instructors = () => {
           <div className="grid md:grid-cols-3 gap-6 ml-5 mr-5 mb-5">
             {instructors.map((instructor) => (
               <div key={instructor.id} className="card shadow-md p-4 rounded-lg toggle-container">
-                <img src={instructor.image} alt={instructor.name} className="rounded-lg mb-4" />
+                <img src={instructor.photoURL} alt={instructor.name} className="rounded-lg mb-4" />
                 <h2 className="text-xl font-bold mb-2">{instructor.name}</h2>
                 <p className=" mb-2">{instructor.email}</p>
                 {instructor.classesTaken && (

@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useCart from "../../Components/Hooks/useCart";
 import useAuth from "../../Components/Hooks/useAuth";
 import useAdmin from "../../Components/Hooks/useAdmin";
+import useInstructor from "../../Components/Hooks/useInstructor";
 
 const Classes = () => {
     const { user } = useAuth();
@@ -15,6 +16,7 @@ const Classes = () => {
     const [classesData, loading] = useClasses();
     const [, refetch] = useCart();
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     const [selectedClass, setSelectedClass] = useState(null);
     console.log(selectedClass);
@@ -101,7 +103,7 @@ const Classes = () => {
                                 <button
                                     className="btn toggle-button font-bold py-2 px-4 rounded-full"
                                     disabled={course.availableSeats === 0
-                                        || isAdmin
+                                        || isAdmin || isInstructor
                                     }
                                     onClick={() => handleSelectClass(course)}
                                 >

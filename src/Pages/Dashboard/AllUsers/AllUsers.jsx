@@ -100,8 +100,8 @@ const AllUsers = () => {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Role</th>
+                            <th>Admin</th>
+                            <th>Instructor</th>
                             <th>Action</th>
                         </tr>
                     </thead>

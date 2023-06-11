@@ -12,6 +12,9 @@ import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -53,8 +56,12 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
         },
         {
           path: 'allUsers',
-          element: <AllUsers />
+          element: <AdminRoute><AllUsers /></AdminRoute>
         },
+        {
+          path: 'addClass',
+          element: <InstructorRoute><AddClass /></InstructorRoute>
+        }
       ]
     }
   ]);

@@ -7,7 +7,7 @@ const Modal = ({ isOpen, onClose, instructorId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/instructors/${instructorId}`)
+    fetch(`http://localhost:5000/users/instructors/${instructorId}`)
       .then(res => res.json())
       .then(data => {
         setInstructor(data)
@@ -50,16 +50,18 @@ const Modal = ({ isOpen, onClose, instructorId }) => {
                   <div className="flex flex-col items-center mb-6">
                     <img
                       className="w-32 h-32 rounded-full mb-4"
-                      src={instructor.image}
+                      src={instructor.photoURL}
                       alt={instructor.name}
                     />
                     <h2 className="text-xl font-bold mb-2">{instructor.name}</h2>
                   </div>
                   <div className="mb-4">
                     <h3 className="text-lg font-bold mb-2">About</h3>
-                    <p>{instructor.about}</p>
+                    <p>
+                      {/* {instructor.about} */}
+                      </p>
                   </div>
-                  <div className="mb-4">
+                  {/* <div className="mb-4">
                     <h3 className="text-lg font-bold mb-2">Client Opinions</h3>
                     {instructor.clientOpinions.map((opinion, index) => (
                       <div key={index} className="mb-2">
@@ -83,7 +85,7 @@ const Modal = ({ isOpen, onClose, instructorId }) => {
                         <li key={index}>{achievement}</li>
                       ))}
                     </ul>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <p>{loading ? <SyncLoader color="#36d7b7"/> : ''}</p>
