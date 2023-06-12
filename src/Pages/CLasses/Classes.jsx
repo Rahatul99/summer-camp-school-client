@@ -26,7 +26,7 @@ const Classes = () => {
         if (user && user.email) {
             const bookedCourse = { courseId: _id, courseName: name, price, availableSeats, studentEmail: user.email, instructor, courseImage: image }
 
-            fetch('http://localhost:5000/carts', {
+            fetch('https://summer-camp-school-server-rahatul99.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

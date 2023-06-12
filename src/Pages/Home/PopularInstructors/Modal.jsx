@@ -7,7 +7,7 @@ const Modal = ({ isOpen, onClose, instructorId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/instructors/${instructorId}`)
+    fetch(`https://summer-camp-school-server-rahatul99.vercel.app/users/instructors/${instructorId}`)
       .then(res => res.json())
       .then(data => {
         setInstructor(data)

@@ -12,7 +12,7 @@
 //     })
 
 //   const handleApprove = (classId) => {
-//     fetch(`http://localhost:5000/classes/approved/${classId}`, {
+//     fetch(`https://summer-camp-school-server-rahatul99.vercel.app/classes/approved/${classId}`, {
 //         method: 'PATCH'
 //     })
 //         .then(res => res.json())
@@ -205,7 +205,7 @@ const ManageClasses = () => {
   });
 
   const handleApprove = (classId) => {
-    fetch(`http://localhost:5000/classes/approved/${classId}`, {
+    fetch(`https://summer-camp-school-server-rahatul99.vercel.app/classes/approved/${classId}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -224,7 +224,7 @@ const ManageClasses = () => {
   };
 
   const handleDeny = (classId) => {
-    fetch(`http://localhost:5000/classes/deny/${classId}`, {
+    fetch(`https://summer-camp-school-server-rahatul99.vercel.app/classes/deny/${classId}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())

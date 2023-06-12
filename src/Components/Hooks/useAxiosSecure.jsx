@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://summer-camp-school-server-rahatul99.vercel.app', 
 });
 
 const useAxiosSecure = () => {
