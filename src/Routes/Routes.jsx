@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistroy";
+import EnrolledClasses from "../Pages/Dashboard/EnrolledCLasses/EnrolledClasses";
 
 
 
@@ -60,6 +62,14 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
         {
           path: 'payment',
           element: <Payment />
+        },
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory />
+        },
+        {
+          path: 'enrolledClasses',
+          element: <EnrolledClasses />
         },
         {
           path: 'allUsers',
