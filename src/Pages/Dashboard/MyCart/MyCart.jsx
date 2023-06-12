@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import useCart from "../../../Components/Hooks/useCart";
 import { FaDollarSign, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [carts, refetch] = useCart();
@@ -45,10 +46,10 @@ const MyCart = () => {
                 <h3 className="text-3xl font-bold mb-4">
                     Total Items: <span className="text-primary">{carts?.length}</span> &nbsp;&nbsp;|&nbsp;&nbsp; Total Price: <span className="text-primary">${total}</span>
                 </h3>
-                <button className="btn btn-primary btn-sm mt-4">
+                <Link to="/dashboard/payment" className="btn btn-primary btn-sm mt-4">
                     <FaDollarSign className="w-4 h-4 mr-2" />
                     Pay Now
-                </button>
+                </Link>
             </div>
 
 

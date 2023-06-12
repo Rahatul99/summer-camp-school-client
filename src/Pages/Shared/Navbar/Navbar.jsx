@@ -21,7 +21,7 @@ const Navbar = ({ toggleMode }) => {
         <li className={location.pathname === '/' ? 'bg-violet-700' : ''}><Link to='/'>Home</Link></li>
         <li className={location.pathname === '/instructors' ? 'bg-violet-700' : ''}><Link to="/instructors">Instructors</Link></li>
         <li className={location.pathname === '/classes' ? 'bg-violet-700' : ''}><Link to="/classes">Classes</Link></li>
-        <li className={location.pathname === '/dashboard' ? 'bg-violet-700' : ''}><Link to="dashboard/myCart">Dashboard</Link></li>
+        <li className={location.pathname === '/dashboard' ? 'bg-violet-700' : ''}><Link to="dashboard">Dashboard</Link></li>
         <li><label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" onClick={toggleMode} />

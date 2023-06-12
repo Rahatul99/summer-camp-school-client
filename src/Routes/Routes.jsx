@@ -17,6 +17,7 @@ import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./AdminRoute";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -55,6 +56,10 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
         {
           path: 'myCart',
           element: <MyCart />
+        },
+        {
+          path: 'payment',
+          element: <Payment />
         },
         {
           path: 'allUsers',
