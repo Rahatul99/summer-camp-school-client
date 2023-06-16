@@ -4,7 +4,6 @@ import { SyncLoader } from 'react-spinners';
 import useInstructorsData from '../../Components/Hooks/useInstructorsData';
 
 const Instructors = () => {
-  // const [instructors, loading] = useInstructors();
   const [instructors, loading] = useInstructorsData()
   return (
     <>

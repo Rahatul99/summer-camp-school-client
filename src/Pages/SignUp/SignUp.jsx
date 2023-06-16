@@ -48,8 +48,6 @@ const SignUp = () => {
             })
     }
 
-
-
     const password = watch('password');
 
 

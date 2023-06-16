@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../Components/Hooks/useAuth";
 import useAxiosSecure from "../../../Components/Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const CheckOutForm = ({ price, carts }) => {
+const CheckOutForm = ({ price, course }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -13,6 +14,9 @@ const CheckOutForm = ({ price, carts }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
         console.log(price);
@@ -79,18 +83,14 @@ const CheckOutForm = ({ price, carts }) => {
             setTransactionId(paymentIntent.id)
             //save payment information to db
             const payment = {
-                email: user?.email, transactionId: paymentIntent.id, price, quantity: carts?.length,
-                classesName: carts?.map(item => item.courseName),
-                classId: carts?.map(item => item._id),
-
+                email: user?.email, transactionId: paymentIntent.id, price, quantity: course?.length,
+                classesName: course?.courseName,
+                classId: course?.courseId,
+                instructor: course?.instructor,
+                availableSeats: parseInt(course?.availableSeats) - 1,
                 date: new Date(),
                 status: 'pending',
-                instructor: carts?.map(item => item.instructor),
-                courseId: carts?.map(item => item.courseId),
-                availableSeats: carts?.map(item => parseInt(item.availableSeats) - 1)
             }
-
-
 
             axiosSecure.post('/payments', payment)
                 .then(res => {
@@ -104,6 +104,7 @@ const CheckOutForm = ({ price, carts }) => {
                             showConfirmButton: false,
                             timer: 1500
                           })
+                        navigate(from, {replace: true});  
                     }
                 })
         }
@@ -133,7 +134,7 @@ const CheckOutForm = ({ price, carts }) => {
                     />
                     <div className="text-center">
                         <button
-                            className="bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-700 font-semibold py-3 px-6 rounded btn btn-wide"
+                            className="btn btn-wide bg-rose-900 hover:bg-orange-600 border-none translate-x-2 transition duration-500 text-slate-200 disabled:cursor-not-allowed font-semibold py-3 px-6 rounded"
                             type="submit"
                             disabled={!stripe || !clientSecret || processing}
                         >
@@ -150,8 +151,6 @@ const CheckOutForm = ({ price, carts }) => {
                 </p>
             )}
         </>
-
-
     );
 };
 

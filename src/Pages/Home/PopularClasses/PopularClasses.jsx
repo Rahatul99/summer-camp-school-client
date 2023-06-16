@@ -5,10 +5,10 @@ import { SyncLoader } from 'react-spinners';
 
 const PopularClassesSection = () => {
   const [classesData, loading] = useClasses();
-  const sortedClasses = classesData.sort((a, b) => b.students - a.students);
+  const sortedClasses = classesData.sort((a, b) => b.student - a.student);
   const topClasses = sortedClasses.slice(0, 6);
 
-  return (
+return (
     <section>
       <SectionTitle title="Popular Classes" />
       {loading ? (
@@ -19,11 +19,12 @@ const PopularClassesSection = () => {
         :
         (<div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4 ml-5 mr-5 mb-5">
           {topClasses.map((classItem) => (
-            <div key={classItem.id} className="card toggle-container">
-              <img src={classItem.image} alt={classItem.name} className="w-full h-40 object-cover" />
+            <div key={classItem._id} className="card toggle-container">
+              <img src={classItem.image} alt={classItem.className} className="w-full h-40 object-cover" />
               <div className="card-body">
-                <h2 className="card-title">{classItem.name}</h2>
-                <p>{classItem.students} Students</p>
+                <h2 className="card-title">{classItem.className}</h2>
+                <p>Students: {classItem?.student}</p>
+                <p>availableSeats: {classItem?.availableSeats}</p>
                 <Link to="classes" className="btn mt-4 toggle-button">See Classes</Link>
               </div>
             </div>

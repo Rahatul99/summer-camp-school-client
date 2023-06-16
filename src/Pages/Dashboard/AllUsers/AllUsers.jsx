@@ -12,15 +12,10 @@ const AllUsers = () => {
         return res.data;
     })
 
-
-    const handleMakeAdmin = user => {
-        fetch(`https://summer-camp-school-server-rahatul99.vercel.app/users/admin/${user._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount) {
+    const handleMakeAdmin = async (user) => {
+        await axiosSecure.patch(`/users/admin/${user._id}`)
+            .then((data) => {
+                if (data.data.modifiedCount) {
                     refetch();
                     Swal.fire({
                         position: 'top-end',
@@ -33,14 +28,10 @@ const AllUsers = () => {
             })
     }
 
-
-    const handleMakeInstructor = (user) => {
-        fetch(`https://summer-camp-school-server-rahatul99.vercel.app/users/instructor/${user._id}`, {
-            method: 'PATCH',
-        })
-            .then((res) => res.json())
+    const handleMakeInstructor = async (user) => {
+        await axiosSecure.patch(`/users/instructor/${user._id}`)
             .then((data) => {
-                if (data.modifiedCount) {
+                if (data.data.modifiedCount) {
                     refetch();
                     Swal.fire({
                         position: 'top-end',
@@ -64,13 +55,10 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://summer-camp-school-server-rahatul99.vercel.app/users/${user._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
+                axiosSecure.delete(`/users/${user._id}`)
                     .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch()
+                        if (data.data.deletedCount > 0) {
+                            refetch();
                             Swal.fire(
                                 'Deleted!',
                                 'User has been deleted.',

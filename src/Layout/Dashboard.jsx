@@ -7,12 +7,8 @@ import useInstructor from '../Components/Hooks/useInstructor';
 
 const Dashboard = () => {
     const { user } = useAuth();
-
-    //todo
-    // const isAdmin = true;
     const [isInstructor] = useInstructor();
     const [isAdmin] = useAdmin();
-    console.log(isInstructor, isAdmin,'--------------------------------');
 
     return (
         <div className="drawer lg:drawer-open">
@@ -42,7 +38,6 @@ const Dashboard = () => {
                             {/* Show admin dashboard links */}
                             <li><NavLink to='/dashboard/manageClasses'><FaMarker /> Manage Classes</NavLink></li>
                             <li><NavLink to='/dashboard/allUsers'><FaUserEdit /> Manage Users</NavLink></li>
-                            {/* <li><NavLink to='/dashboard/addClass'><FaUpload />Add a Class</NavLink></li> */}
                         </>
                     ) : (
                         <>

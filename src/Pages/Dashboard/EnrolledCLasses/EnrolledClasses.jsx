@@ -24,24 +24,28 @@ const EnrolledClasses = () => {
   }, [axiosSecure, user.email]);
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Enrolled Classes</h1>
-      <table className="table-auto">
+    <div className='p-5 w-full'>
+      <div className="mx-auto text-center my-8">
+        <h3 className="text-4xl font-bold uppercase border-b-4 border-orange-400 inline-block py-2 px-4 tracking-wider">
+        Enrolled Classes
+        </h3>
+      </div>
+      <table className="table-auto w-full border border-gray-300">
         <thead>
-          <tr>
-            <th>#</th>
-            <th>Class Name</th>
-            <th>Date</th>
-            <th>Status</th>
+          <tr className="bg-gray-700 text-green-500">
+            <th className="px-4 py-2">#</th>
+            <th className="px-4 py-2">Class Name</th>
+            <th className="px-4 py-2">Date</th>
+            {/* <th className="px-4 py-2">Status</th> */}
           </tr>
         </thead>
-        <tbody>
+        <tbody className='text-black text-center'>
           {enrolledClasses.map((classItem, index) => (
-            <tr key={classItem._id}>
-              <td>{index + 1}</td>
-              <td>{classItem.className}</td>
-              <td>{classItem.date}</td>
-              <td>{classItem.status}</td>
+            <tr key={classItem._id} className={index % 2 === 0 ? 'bg-gray-200' : 'bg-white'}>
+              <td className="border px-4 py-2">{index + 1}</td>
+              <td className="border px-4 py-2">{classItem.classesName}</td>
+              <td className="border px-4 py-2">{classItem.date}</td>
+              {/* <td className="border px-4 py-2">{classItem.status}</td> */}
             </tr>
           ))}
         </tbody>

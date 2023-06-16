@@ -25,8 +25,12 @@ const PaymentHistory = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-4">Payment History</h1>
-      <div className="overflow-x-auto">
+      <div className="mx-auto text-center my-8">
+        <h3 className="text-4xl font-bold uppercase border-b-4 border-orange-400 inline-block py-2 px-4 tracking-wider">
+        Payment History
+        </h3>
+      </div>
+      <div className="p-5">
         <table className="table-auto">
           <thead>
             <tr>
@@ -34,27 +38,19 @@ const PaymentHistory = () => {
               <th className="px-4 py-2">Email</th>
               <th className="px-4 py-2">Transaction ID</th>
               <th className="px-4 py-2">Price</th>
-              <th className="px-4 py-2">Quantity</th>
               <th className="px-4 py-2">Class ID</th>
               <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">Course ID</th>
-              <th className="px-4 py-2">Available Seats</th>
             </tr>
           </thead>
           <tbody>
-            {paymentHistory.map((item, index) => (
-              <tr key={item._id}>
+            {paymentHistory.map((course, index) => (
+              <tr key={course._id}>
                 <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">{item.email}</td>
-                <td className="border px-4 py-2">{item.transactionId}</td>
-                <td className="border px-4 py-2">{item.price}</td>
-                <td className="border px-4 py-2">{item.quantity}</td>
-                <td className="border px-4 py-2">{item.classId[0]}</td>
-                <td className="border px-4 py-2">{item.date}</td>
-                <td className="border px-4 py-2">{item.status}</td>
-                <td className="border px-4 py-2">{item.courseId[0]}</td>
-                <td className="border px-4 py-2">{item.availableSeats[0]}</td>
+                <td className="border px-4 py-2">{course.email}</td>
+                <td className="border px-4 py-2">{course.transactionId}</td>
+                <td className="border px-4 py-2">{course.price}</td>
+                <td className="border px-4 py-2">{course.classId}</td>
+                <td className="border px-4 py-2">{course.date}</td>
               </tr>
             ))}
           </tbody>

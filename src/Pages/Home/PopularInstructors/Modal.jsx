@@ -54,6 +54,7 @@ const Modal = ({ isOpen, onClose, instructorId }) => {
                       alt={instructor.name}
                     />
                     <h2 className="text-xl font-bold mb-2">{instructor.name}</h2>
+                    <p>Email: {instructor.email}</p>
                   </div>
                   <div className="mb-4">
                     <h3 className="text-lg font-bold mb-2">About</h3>

@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet";
 import useCart from "../../../Components/Hooks/useCart";
-import { FaDollarSign, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const MyCart = () => {
     const [carts, refetch] = useCart();
+    console.log(carts,'myCart');
     const total = carts?.reduce((sum, item) => item.price + sum, 0)
 
     const handleDelete = (course) => {
@@ -28,7 +29,7 @@ const MyCart = () => {
                             refetch()
                             Swal.fire(
                                 'Deleted!',
-                                'Your file has been deleted.',
+                                'Your course has been deleted.',
                                 'success'
                             )
                         }
@@ -46,13 +47,7 @@ const MyCart = () => {
                 <h3 className="text-3xl font-bold mb-4">
                     Total Items: <span className="text-primary">{carts?.length}</span> &nbsp;&nbsp;|&nbsp;&nbsp; Total Price: <span className="text-primary">${total}</span>
                 </h3>
-                <Link to="/dashboard/payment" className="btn btn-primary btn-sm mt-4">
-                    <FaDollarSign className="w-4 h-4 mr-2" />
-                    Pay Now
-                </Link>
             </div>
-
-
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -64,6 +59,7 @@ const MyCart = () => {
                             <th>Courses Name</th>
                             <th>Courses Price</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,12 +75,20 @@ const MyCart = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    {course?.courseName}
+                                <td className="text-white">
+                                    {course.courseName}
                                 </td>
                                 <td className="text-center">${course?.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(course)} className="btn btn-ghost btn-md bg-red-700"><FaTrash /></button>
+                                </td>
+                                <td>
+                                    <Link
+                                        to="/dashboard/payment" state={course}
+                                        className="btn btn-ghost btn-md bg-green-500 text-white"
+                                    >
+                                        Pay Now
+                                    </Link>
                                 </td>
                             </tr>)
                         }

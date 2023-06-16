@@ -55,42 +55,48 @@ const MyClasses = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="text-center w-full p-5">
       <SectionTitle title="My Classes" />
 
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <table className="min-w-full bg-white">
+        <table className="min-w-full bg-gray-900 text-white">
           <thead>
             <tr>
-              <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
                 Class Name
               </th>
-              <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
                 Status
               </th>
-              <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
                 Total Enrolled Students
               </th>
-              <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
                 Feedback
               </th>
-              <th className="py-2 px-4 border-b-2 border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
+                Price
+              </th>
+              <th className="py-3 px-4 bg-gray-800 border-b font-bold">
                 Update
               </th>
             </tr>
           </thead>
           <tbody>
             {instructorClasses.map((classItem) => (
-              <tr key={classItem._id}>
-                <td className="py-2 px-4 border-b border-gray-200">{classItem.className}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{classItem.status}</td>
-                <td className="py-2 px-4 border-b border-gray-200">{classItem?.enrolledStudents}</td>
-                <td className="py-2 px-4 border-b border-gray-200">
-                  {classItem.status === 'denied' ? classItem?.feedback : ''}
+              <tr className="border-b" key={classItem._id}>
+                <td className="py-4 px-4">{classItem.className}</td>
+                <td className="py-4 px-4">{classItem.status}</td>
+                <td className="py-4 px-4">{classItem?.student}</td>
+                <td className="py-4 px-4">
+                  {classItem.status === 'deny' ? classItem?.feedback : 'Not mentioned yet'}
                 </td>
-                <td className="py-2 px-4 border-b border-gray-200">
+                <td className="py-4 px-4">
+                  {classItem.price}
+                </td>
+                <td className="py-4 px-4">
                   {classItem.status !== 'pending' && (
                     <button
                       onClick={() => handleUpdate(classItem._id)}
