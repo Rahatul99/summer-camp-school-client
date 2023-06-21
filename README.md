@@ -1,77 +1,36 @@
-# WEB-SITE-NAME: Dive-In Delight
-- Live-link: https://summer-camp-school-e8dd7.web.app/
-- Client-side-code-repository: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Rahatul99
+# Dive-In Delight: Summer Camp Website for Swimming Activities
 
-- Server-side-code-repository: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Rahatul99
+Welcome to Dive-In Delight, a comprehensive website dedicated to providing a memorable summer camp experience centered around swimming activities. Dive-In Delight offers a range of features and functionalities for users, instructors, and administrators. Join us at [Dive-In Delight](https://summer-camp-school-e8dd7.web.app/) for an unforgettable summer adventure!
 
-# Used packages/ technology name
+## Features
 
-# Packages:
+1. **Secure Login System with Multiple Authorization Levels**: Dive-In Delight ensures a safe and personalized experience for users, instructors, and admins. Each user type has distinct privileges and access levels within the system.
 
-- @emotion/react: Emotion library for styling React components with CSS-in-JS.
-- @headlessui/react: UI components library for building accessible and customizable UI components.
-- @stripe/react-stripe-js: React wrapper for Stripe.js, a library for handling payments with Stripe.
-- @stripe/stripe-js: JavaScript library for interacting with the Stripe API.
-- @tanstack/react-query: Library for managing, caching, synchronizing, and updating server state in React applications.
-- aos: Animate On Scroll library for adding animations to elements as they enter the viewport.
-- axios: Promise-based HTTP client for making HTTP requests.
-- firebase: JavaScript SDK for integrating Firebase services into web applications.
-- framer-motion: Animation library for creating smooth and interactive animations in React applications.
-- localforage: Library for offline storage, which provides a simple API for key-value storage using various storage engines.
-- match-sorter: Library for fuzzy filtering and sorting arrays or collections.
-- react: JavaScript library for building user interfaces.
-- react-awesome-reveal: Animation library for adding reveal effects to elements.
-- react-awesome-slider: Slider component library for creating responsive and customizable sliders.
-- react-dom: Provides DOM-specific methods for React applications.
-- react-helmet: Library for managing document head tags in React applications.
-- react-helmet-async: Asynchronous version of React Helmet for managing document head tags in React applications.
-- react-hook-form: Library for building forms in React with easy form validation.
-- react-icons: Library for including popular icon sets in React applications.
-- react-parallax: Parallax scrolling effect library for React.
-- react-responsive-carousel: Carousel component library for creating responsive carousels.
-- react-router-dom: Routing library for React applications.
-- react-spinners: Collection of loading spinners and animated loaders for React.
-- sort-by: Utility library for sorting arrays based on various criteria.
-- sweetalert2: Library for displaying beautiful and customizable alerts and modals.
-# Technologies:
+2. **Protected Routing**: We prioritize security by implementing private routes, admin routes, and instructor routes. This guarantees secure navigation and protects sensitive information from unauthorized access.
 
-- Vite: Build tool and development server for modern web development.
-- Tailwind CSS: Utility-first CSS framework for building responsive and custom user interfaces.
+3. **Seamless Payment Experience with Stripe**: Our website seamlessly integrates the Stripe payment system, enabling students to make secure online payments for enrolling in classes. Enjoy a hassle-free and secure payment process.
 
-### Dive-In Delight is a complete website catering to users, instructors, and administrators. It is centered around a summer camp school with a focus on swimming activities. Below, I will explain the key features of the Dive-In Delight website:
+4. **Enhanced Frontend Security and Asynchronous Data Updates**: Dive-In Delight employs cutting-edge technologies such as Axios interceptor and Tanstack Query for enhanced frontend security and real-time data updates. Rest assured that your data is protected and always up to date.
 
-####User Management:
+5. **JWT Authentication**: Dive-In Delight utilizes JSON Web Tokens (JWT) for secure data authorization between the client and server. This ensures authenticated and confidential communication, providing peace of mind to our users.
 
-- User Registration: Users can easily register on the website to create their own accounts.
-- User Login: Registered users can log in to access personalized features and content.
+6. **Efficient Class Management**: Instructors can effortlessly add classes to the system, while administrators have the authority to verify and provide valuable feedback on these classes. We prioritize effective class management to deliver a seamless experience for both instructors and students.
 
-#### Course Management:
+## Technology Stack
 
-- Course Listings: Dive-In Delight provides a comprehensive list of swimming courses available for users to browse and choose from.
-- including course description, duration, schedule, and pricing.
-- Course Enrollment: Users can enroll in swimming courses of their choice, either by making a payment online.
-- Class Availability: Users can check the availability of classes and the number of remaining seats before enrolling.
+- **Frontend**: React JS
+- **CSS Framework**: Tailwind CSS
+- **HTTP Library**: Axios
+- **Animation Libraries**: Lottie, Framer Motion, React Awesome Reveal
+- **Data Fetching**: Tanstack Query
+- **Payment Gateway**: Stripe
+- **Backend Framework**: Express JS
+- **Database**: MongoDB
 
-#### Instructor Management:
+Join us at Dive-In Delight and embark on an exciting journey of swimming activities, skill development, and unforgettable summer memories. Dive into the fun and make this summer an experience to cherish!
 
-- Instructor Profiles: Dive-In Delight showcases profiles of experienced swimming instructors, including their qualifications, and areas of expertise.
+## CODE AND LIVE LINK
+- **Live-link:** https://summer-camp-school-e8dd7.web.app/
+- **Client-side-code-repository:** https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Rahatul99
 
-- Instructor Availability: Users can view the availability of instructors and choose the one that best fits their preferences.
-
-#### Instructor Dashboard:
-- With this feature, instructors within Dive-In Delight have the flexibility and control to create and manage their own swimming classes.
-
-#### Admin Dashboard:
-
-- Admin Access: Authorized administrators can log in to a dedicated admin dashboard to manage the website's content, courses, instructors, and users.
-
-- Content Management: The admin can approve, deny, delete courses that added by instructor.
-
-#### Payment Integration:
-
-- Online Payments: Dive-In Delight integrates with a secure payment gateway, allowing users to make online payments for course enrollment.
-Transaction History: Users can view payment history, including transaction IDs, payment amounts, and dates.
-
-#### Responsive Design:
-
-- Dive-In Delight home is built with a responsive design, ensuring a seamless and optimized user experience across various devices, including desktops, tablet, and mobile phones.
+- **Server-side-code-repository:** https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Rahatul99
